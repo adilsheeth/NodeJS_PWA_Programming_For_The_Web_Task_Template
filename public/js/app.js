@@ -11,11 +11,15 @@ fetch("./frontEndData.json")
   });
 function appendData(data) {
   data.forEach(({ srn, first_name, last_name, gender, school_year, roll_class, dob, house } = rows) => {
+    dob = dob.split("-").join("/")
     result += `
         <div class="card">
-        <h1 class="card-name">${first_name + " " + last_name}</h1>
-        <p class="card-about">${gender + " ," + roll_class}</p>
-        
+        <h1 class="card-name"><a>${first_name + " " + last_name}</a></h1>
+        <p class="">${gender == "M" ? "Male" : "Female"}</p>
+        <p class="">${roll_class}</p>
+        <p>${dob}</p>
+        <p>${house}</p>
+        <p></p>
         </div>
         `;
   });

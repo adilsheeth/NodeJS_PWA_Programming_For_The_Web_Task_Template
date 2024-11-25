@@ -8,7 +8,7 @@ db.all("SELECT * FROM students", function (err, rows) {
   let myCounter = 0;
   rows.forEach(function (row) {
     // for debugging
-    // console.log(row.extID + ": " + row.name + ": " + row.hyperlink + ": " + row.about + ": " + row.image + ": " + row.language);
+    // console.log(row.extID + ": " + row.name + ": " + row.hyperlink + ": " + row.about + ": " + row.image + ": " + row.language );
     myString =
       myString +
       '{\n"srn":' +
@@ -42,7 +42,9 @@ db.all("SELECT * FROM students", function (err, rows) {
       console.log(err);
     }
   });
-});// Insert additional backend js above the express server configuration
+});
+
+// Insert additional backend js above the express server configuration
 
 const express = require("express");
 const path = require("path");
@@ -52,8 +54,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
-app.listen(5000, () =>
+app.listen(4999, () =>
   console.log(
-    "Server is running on Port 5000, visit http://localhost:5000/ or http://127.0.0.1:5000 to access your website"
+    "Server is running on Port 5000, visit http://localhost:4999/ or http://127.0.0.1:4999 to access your website"
   )
 );
